@@ -98,6 +98,16 @@ files = [
 ]
 
 [[package]]
+name = "coolbasics"
+version = "0.1"
+description = "A Python module for having fun!"
+optional = false
+python-versions = "*"
+files = [
+    {file = "coolBasics-0.1.tar.gz", hash = "sha256:248de38ae0e5f52f31d4c8a86efb8520e31d4684f922d0f0c7ede99d912ed281"},
+]
+
+[[package]]
 name = "discord"
 version = "2.3.2"
 description = "A mirror package for discord.py. Please install that instead."
@@ -326,4 +336,4 @@ multidict = ">=4.0"
 [metadata]
 lock-version = "2.0"
 python-versions = ">=3.10.0,<3.11"
-content-hash = "223ae58156f964c63fc5e9df10fc184306e08bc35a6bf8d064ca76e0bb45219c"
+content-hash = "290da83c07e53af8cbcba7af421c9d0a801d426bbfc8c37a5e89e630d8f4e70e"
