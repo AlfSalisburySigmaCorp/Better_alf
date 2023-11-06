@@ -1,8 +1,9 @@
-import os
 import discord
+import os
 import time
 
 import quotelist as ql
+import fun as f
 
 intents = discord.Intents.default()
 intents.message_content = True
@@ -33,19 +34,27 @@ async def on_message(message):
     await message.channel.send('Da Niggas')
 
   elif message.content.startswith("//jquote") or message.content.startswith("//Jquote"):
-    await message.channel.send(ql.Jacob_quote(ql.jquotes))
+    await ql.Jacob_quote(ql.jquotes, message)
 
   elif 'kys' in message.content.lower():
-    for i in range(1000):
-      time.sleep(0.2)
-      await message.channel.send('KILL YOURSELF!!!!!!')
-    
-# runs the program inside the bot with the specified token (in secrets tab)
+    f.kys(message)
+
+  elif message.content.startswith("//phones"):
+    await f.phones(message)
+
+  elif message.content.startswith("//react"):
+    await f.react(f.reactions, message)
+
+  elif message.content.startswith("//kettle"):
+    await message.channel.send("https://cdn.discordapp.com/attachments/927612770709561406/1169999748200144946/Screenshot_2023-11-03-13-59-37-641_com.snapchat.android.png?ex=6557722d&is=6544fd2d&hm=91f47bfd047a535063c9bcba2871265037b957ad8fb878682a986abb1eea8399&")
+
+
 try:
   token = os.getenv("TOKEN") or ""
   if token == "":
     raise Exception("Please add your token to the Secrets pane.")
   client.run(token)
+  
 except discord.HTTPException as e:
   if e.status == 429:
     print(

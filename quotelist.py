@@ -16,5 +16,5 @@ jquotes = [
   "'cock, i mean come' -Jacob 30.11.2022 20:48"
 ]
 
-def Jacob_quote(jquotes):
-  return r.choice(jquotes)
+def Jacob_quote(jquotes, message):
+  return message.channel.send(r.choice(jquotes))
