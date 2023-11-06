@@ -1,18 +1,18 @@
 import os
-
 import discord
 
 intents = discord.Intents.default()
 intents.message_content = True
-
 client = discord.Client(intents=intents)
 
 
+# checks the event of the user logging in using a decorator on function: event
 @client.event
 async def on_ready():
   print('We have logged in as {0.user}'.format(client))
 
 
+# checks the event of the user sending a message using a decorator on function: event
 @client.event
 async def on_message(message):
   if message.author == client.user:
