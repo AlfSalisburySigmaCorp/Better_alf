@@ -1,5 +1,6 @@
 import os
 import discord
+import basics as b
 
 intents = discord.Intents.default()
 intents.message_content = True
@@ -13,6 +14,8 @@ async def on_ready():
 
 
 # checks the event of the user sending a message using a decorator on function: event
+
+
 @client.event
 async def on_message(message):
   if message.author == client.user:
@@ -21,7 +24,10 @@ async def on_message(message):
   if message.content.startswith('$hello'):
     await message.channel.send('Hello!')
 
+  elif message.content.startswith("$kys"):
+    await message.channel.send("Dayum nigga wtf")
 
+# runs the program inside the bot with the specified token (in secrets tab)
 try:
   token = os.getenv("TOKEN") or ""
   if token == "":
