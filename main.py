@@ -1,6 +1,8 @@
 import os
 import discord
-import basics as b
+import time
+
+import quotelist as ql
 
 intents = discord.Intents.default()
 intents.message_content = True
@@ -21,12 +23,23 @@ async def on_message(message):
   if message.author == client.user:
     return
 
-  if message.content.startswith('$hello'):
+  if message.content.startswith('//hello'):
     await message.channel.send('Hello!')
 
-  elif message.content.startswith("$kys"):
+  elif message.content.startswith("//kys"):
     await message.channel.send("Dayum nigga wtf")
 
+  elif message.content.startswith('//who was in paris'):
+    await message.channel.send('Da Niggas')
+
+  elif message.content.startswith("//jquote") or message.content.startswith("//Jquote"):
+    await message.channel.send(ql.Jacob_quote(ql.jquotes))
+
+  elif 'kys' in message.content.lower():
+    for i in range(1000):
+      time.sleep(0.2)
+      await message.channel.send('KILL YOURSELF!!!!!!')
+    
 # runs the program inside the bot with the specified token (in secrets tab)
 try:
   token = os.getenv("TOKEN") or ""
